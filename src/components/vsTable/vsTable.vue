@@ -156,7 +156,7 @@ export default {
   }),
   computed:{
     getTotalPages() {
-      return Math.ceil(this.total / this.maxItemsx)
+      return Math.ceil((this.sst ? this.total : this.data.length) / this.maxItemsx)
     },
     getTotalPagesSearch() {
       return Math.ceil(this.queriedResults.length / this.maxItems)
