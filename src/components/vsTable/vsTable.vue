@@ -409,6 +409,9 @@ export default {
       }
     },
     changeMaxItems (index) {
+      if(this.sst) {
+        this.$emit('change-max-size', this.maxItemsx)
+      }
       this.maxItemsx = this.descriptionItems[index]
     }
   }
