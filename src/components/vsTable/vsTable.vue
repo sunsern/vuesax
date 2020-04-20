@@ -409,10 +409,10 @@ export default {
       }
     },
     changeMaxItems (index) {
+      this.maxItemsx = this.descriptionItems[index]
       if(this.sst) {
         this.$emit('change-max-size', this.maxItemsx)
       }
-      this.maxItemsx = this.descriptionItems[index]
     }
   }
 }
