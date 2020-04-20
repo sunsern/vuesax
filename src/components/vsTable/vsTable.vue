@@ -62,6 +62,9 @@
           :max-items="maxItemsx"
           :size-array="queriedResults.length"
           :description="description"
+          :description-title="descriptionTitle"
+          :description-connector="descriptionConnector"
+          :description-body="descriptionBody"          
           @changeMaxItems="changeMaxItems"
         >
         </vs-pagination>
@@ -125,6 +128,18 @@ export default {
     descriptionItems:{
       default: () => [],
       type: Array
+    },
+    descriptionTitle:{
+      default: 'Registries',
+      type: String
+    },
+    descriptionConnector:{
+      default: 'of',
+      type: String
+    },
+    descriptionBody:{
+      default: 'Pages',
+      type: String
     },
     currentPage: {
       default: 1,
@@ -395,6 +410,7 @@ export default {
     },
     changeMaxItems (index) {
       this.maxItemsx = this.descriptionItems[index]
+      this.loadData()
     }
   }
 }
