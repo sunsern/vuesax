@@ -279,7 +279,7 @@ export default {
       }
     },
     getItems(min, max) {
-      let dataBase = this.sortItems(this.data);
+      let dataBase = this.sst ? this.data : this.sortItems(this.data);
 
       let items = []
       dataBase.forEach((item, index) => {
@@ -410,7 +410,6 @@ export default {
     },
     changeMaxItems (index) {
       this.maxItemsx = this.descriptionItems[index]
-      this.loadData()
     }
   }
 }
