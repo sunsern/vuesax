@@ -60,7 +60,7 @@
           :total="searchx && !sst ? getTotalPagesSearch : getTotalPages"
           :description-items="descriptionItems"
           :max-items="maxItemsx"
-          :size-array="queriedResults.length"
+          :size-array="sst ? total : queriedResults.length"
           :description="description"
           :description-title="descriptionTitle"
           :description-connector="descriptionConnector"
