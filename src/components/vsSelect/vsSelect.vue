@@ -409,7 +409,8 @@ export default {
       this.setLabelClass(this.$refs.inputSelectLabel, true);
       let inputx = this.$refs.inputselect;
       setTimeout(() => {
-        document.addEventListener("click", this.clickBlur);
+        document.addEventListener("mousedown", this.clickBlur);
+        //document.addEventListener("click", this.clickBlur);
       }, 100);
       if (this.autocomplete && this.multiple) {
         setTimeout(() => {
