@@ -215,8 +215,8 @@ export default {
         this.loadData();
       }
     },
-    maxItems(val) {
-      this.maxItemsx = val;
+    maxItems() {
+      this.maxItemsx = this.maxItems;
       //this.loadData();
     },
     maxItemsx() {
@@ -242,7 +242,7 @@ export default {
   mounted() {
     window.addEventListener("resize", this.listenerChangeWidth);
     this.maxItemsx = this.maxItems;
-    //this.loadData();
+    this.loadData();
 
     // this.$nextTick(() => {
     //   if(this.datax.length > 0) {
