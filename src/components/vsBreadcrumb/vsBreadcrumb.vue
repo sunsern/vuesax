@@ -43,64 +43,67 @@
 </template>
 
 <script>
-import _color from '../../utils/color.js'
+import _color from "../../utils/color.js";
 
 export default {
-  name:'VsBreadcrumb',
-  props:{
-    items:{
-      type:Array
+  name: "VsBreadcrumb",
+  props: {
+    items: {
+      type: Array,
     },
-    separator:{
-      type:String,
-      default:'/'
+    separator: {
+      type: String,
+      default: "/",
     },
-    color:{
-      type:String,
-      default: 'primary'
+    color: {
+      type: String,
+      default: "primary",
     },
-    align:{
-      type:String,
-      default:'left'
-    }
+    align: {
+      type: String,
+      default: "left",
+    },
   },
   data() {
     return {
       items_: [],
-    }
+    };
   },
   computed: {
     textClass() {
-      const classes = {}
+      const classes = {};
       if (_color.isColor(this.color)) {
-        classes[`vs-breadcrumb-text-${this.color}`] = true
+        classes[`vs-breadcrumb-text-${this.color}`] = true;
       }
-      return classes
+      return classes;
     },
     textStyle() {
-      const style = {}
+      const style = {};
       if (!_color.isColor(this.color)) {
-        style.color = _color.getColor(this.color)
+        style.color = _color.getColor(this.color);
       }
-      return style
+      return style;
     },
-    hasSlot () {
-      return !!this.$slots.default
-    }
+    hasSlot() {
+      return !!this.$slots.default;
+    },
+    itemx() {
+      return [...this.items];
+    },
   },
   created() {
-    if(this.items) {
-      this.items_ = this.items.map(item => {
+    if (this.items) {
+      this.items_ = this.itemx.map((item) => {
         if (typeof item.title === "function") {
           return {
             ...item,
-            title: item.title(this.$route.params)
-          }
+            title: item.title(this.$route.params),
+          };
         }
 
-        return item
-      })
+        return item;
+      });
     }
   },
-}
+};
 </script>
